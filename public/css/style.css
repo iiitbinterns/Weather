@@ -1,0 +1,47 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    background-color:rgb(238, 234, 234);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: auto;
+    padding: auto;
+    margin-top: 70px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-size: 13px;
+}
+.box input{
+    width: 200px;
+    height: 35px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.box button{
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(42, 224, 224);
+}
+.box button:hover{
+    cursor: pointer;
+    background-color: yellow;
+}
+.box p{
+    font-size: 10px;
+}
+.error{
+    color: red;
+    font-size: 12px;
+    margin-top: -15px;
+    margin-bottom: 5px;
+}
