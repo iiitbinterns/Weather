@@ -12,22 +12,15 @@ app.get('/weather-forecast', async (req, res) => {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    // Extracting relevant data for each day
+    // Extracting relevant data for each day and converting temperature to Celsius
     const formattedData = data.data.weather.map(day => ({
-      tempF: day.maxtempF,
-      windspeed: day.hourly[0].windspeedKmph,
-      humidity: day.hourly[0].humidity,
-      pressure: day.hourly[0].pressure,
-      sunrise: day.astronomy[0].sunrise,
-      sunset: day.astronomy[0].sunset,
-      moonrise: day.astronomy[0].moonrise,
-      moonset: day.astronomy[0].moonset,
+      tempC: ((day.maxtempF - 32) * 5/9).toFixed(2), // Convert temperature from Fahrenheit to Celsius
       date: day.date,
-      cloudcover: day.hourly[0].cloudcover
+      cloudcover: day.hourly[0].cloudcover,
+      isRaining: day.hourly.some(hour => hour.precipMM > 0) // Check if it's raining at any hour of the day
     }));
 
     // Write the formatted data to a JSON file
-   
     res.setHeader('Content-Type', 'application/json');
     res.send(formattedData);
 
@@ -40,3 +33,8 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
+
