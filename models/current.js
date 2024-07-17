@@ -7,11 +7,11 @@ const currentSchema=new mongoose.Schema({
         required:true
     },
     rain:{
-        type:
+        type:Boolean,
         required:true
     },
     cloudcover:{
-        type:,
+        type:Number,
         required:true
     }
 });
